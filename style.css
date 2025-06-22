@@ -1,0 +1,108 @@
+/* Reset and base styles */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #181818; color: #fff; }
+html { scroll-behavior: smooth; }
+
+/* Navbar styles */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  background: rgba(24,24,24,0.95);
+  z-index: 1000;
+  transition: background 0.3s, box-shadow 0.3s;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 64px;
+}
+.navbar.scrolled {
+  background: #181818;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+}
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #FFD600;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+.navbar .nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.navbar .nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+.navbar .nav-links li a:hover,
+.navbar .nav-links li a.active {
+  color: #FFD600;
+  border-bottom: 2px solid #FFD600;
+}
+
+/* Hamburger menu */
+.navbar .hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+.navbar .hamburger span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #FFD600;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+  .navbar .nav-links {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: #181818;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    display: none;
+    transition: max-height 0.3s;
+  }
+  .navbar .nav-links.open {
+    display: flex;
+  }
+  .navbar .hamburger {
+    display: flex;
+  }
+}
+
+/* Section styles for demo */
+section {
+  min-height: 100vh;
+  padding: 96px 2rem 2rem 2rem;
+  border-bottom: 1px solid #222;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section h2 {
+  color: #FFD600;
+  margin-bottom: 1rem;
+}
